@@ -10,6 +10,7 @@ import com.space.core.navigation.LocalGlobalNavigator
 import com.space.core.navigation.rememberNavigator
 import com.space.foodgo.MainActivity
 import com.space.foodgo.feature.menu.api.MenuFeatureKey
+import com.space.foodgo.feature.menu.presentation.navigator.menuEntry
 
 @Composable
 fun MainActivity.FoodGoContainer() {
@@ -28,6 +29,7 @@ fun MainActivity.FoodGoContainer() {
                 if (navigator.backStack.size > 1) navigator.pop() else finishAffinity()
             },
             entryProvider = entryProvider {
+                menuEntry()
             },
         )
     }

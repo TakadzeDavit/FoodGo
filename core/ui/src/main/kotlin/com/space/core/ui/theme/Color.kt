@@ -4,17 +4,17 @@ import androidx.compose.runtime.staticCompositionLocalOf
 import androidx.compose.ui.graphics.Color
 
 internal object Colors {
-    val Primary = Color(0xFF378ADD)
-    val OnPrimary = Color(0xFFDEDEDE)
-    val BadgeRed = Color(0xFFE24B4A)
-    val AddedGreenText = Color(0xFF2D9D78)
-    val AddedGreenBg = Color(0xFFE6F4EA)
-    val TextPrimary = Color(0xFF0F1521)
-    val TextSecondary = Color(0xFF6B7280)
-    val Background = Color(0xFFF3F4F6)
-    val CardBg = Color(0xFFFFFFFF)
-    val Surface = Color(0xFFE1E1E1)
-    val BorderNeutral = Color(0xFFE5E7EB)
+    val Primary = Color(0xFF3B7683)
+    val OnPrimary = Color(0xFFFFFFFF)
+    val Background = Color(0xFFF6F6EE)
+    val CardBg = Color(0xFFEBDDC8)
+    val TextPrimary = Color(0xFF265053)
+    val TextSecondary = Color(0xFF0C6758)
+    val BadgeRed = Color(0xFFB15053)
+    val BorderNeutral = Color(0xFF0C6758)
+    val AddedBg = Color(0xFFEBDDC8)
+    val AddedText = Color(0xFF265053)
+    val Surface = Color(0xFFF6F6EE)
 }
 
 data class FoodGoAppColors(
@@ -22,8 +22,8 @@ data class FoodGoAppColors(
     val onPrimary: Color,
     val surface: Color,
     val badgeRed: Color,
-    val addedGreenText: Color,
-    val addedGreenBg: Color,
+    val addedText: Color,
+    val addedBg: Color,
     val textPrimary: Color,
     val textSecondary: Color,
     val background: Color,
@@ -36,8 +36,8 @@ val FoodGoColors = FoodGoAppColors(
     onPrimary = Colors.OnPrimary,
     surface = Colors.Surface,
     badgeRed = Colors.BadgeRed,
-    addedGreenText = Colors.AddedGreenText,
-    addedGreenBg = Colors.AddedGreenBg,
+    addedText = Colors.AddedText,
+    addedBg = Colors.AddedBg,
     textPrimary = Colors.TextPrimary,
     textSecondary = Colors.TextSecondary,
     background = Colors.Background,

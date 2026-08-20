@@ -1,4 +1,4 @@
-package com.space.core.presentation
+package com.space.core.presentation.common
 
 import androidx.lifecycle.ViewModel
 import com.space.core.navigation.FeatureNavigationHelper
