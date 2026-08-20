@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="my_cart">My Cart</string>
+    <string name="place_order">Place Order</string>
+    <string name="min">min</string>
+    <string name="estimated_delivery_time">Estimated delivery time</string>
+    <string name="preparing_your_order">Preparing your order</string>
+    <string name="your_order_is_ready">Your Order is ready</string>
+    <string name="order_ready">Order ready</string>
+    <string name="back_to_home">Back to home</string>
+</resources>
