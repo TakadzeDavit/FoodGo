@@ -1,0 +1,14 @@
+plugins {
+    alias(libs.plugins.foodgo.android.library)
+    alias(libs.plugins.koin.compiler)
+    alias(libs.plugins.ksp)
+}
+android{
+    namespace = "com.space.core.data"
+}
+
+dependencies {
+    implementation(libs.bundles.room)
+    implementation(libs.bundles.koin)
+    ksp(libs.room.compiler)
+}
