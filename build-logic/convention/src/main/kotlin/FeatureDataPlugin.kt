@@ -10,10 +10,6 @@ class FeatureDataPlugin : Plugin<Project> {
             pluginManager.apply("io.insert-koin.compiler.plugin")
 
             dependencies {
-//                   implementationLibrary(CORE_DOMAIN_MODULE)
-//                implementationModule(CORE_DATA_MODULE)
-//                implementationModule(CORE_DOMAIN_MODULE)
-                //  implementationModule(":feature:${featureName()}:domain")
                 implementationBundle("koin")
             }
         }

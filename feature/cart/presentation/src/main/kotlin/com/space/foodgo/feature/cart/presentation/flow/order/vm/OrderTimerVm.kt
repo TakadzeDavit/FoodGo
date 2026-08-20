@@ -3,11 +3,9 @@ package com.space.foodgo.feature.cart.presentation.flow.order.vm
 import androidx.lifecycle.viewModelScope
 import com.space.core.domain.usecase.ClearCartUseCase
 import com.space.core.presentation.common.BaseVm
-import com.space.foodgo.feature.cart.api.CartFeatureKey
 import com.space.foodgo.feature.cart.presentation.flow.order.contract.OrderTimerEvent
 import com.space.foodgo.feature.cart.presentation.flow.order.contract.OrderTimerState
 import com.space.foodgo.feature.cart.presentation.flow.order.contract.OrderTimerState.Companion.TOTAL_SECONDS
-import com.space.foodgo.feature.menu.api.MenuFeatureKey
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlin.time.Duration.Companion.milliseconds

@@ -9,7 +9,6 @@ class FeatureDomainPlugin : Plugin<Project> {
             pluginManager.apply("foodgo.jvm.library")
 
             dependencies {
-//                implementationModule(CORE_DOMAIN_MODULE)
                 implementationLibrary("kotlinx-coroutines-core")
             }
         }
