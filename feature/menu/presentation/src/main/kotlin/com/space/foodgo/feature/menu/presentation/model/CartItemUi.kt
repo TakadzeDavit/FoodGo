@@ -1,7 +1,5 @@
 package com.space.foodgo.feature.menu.presentation.model
 
-import com.space.foodgo.feature.menu.presentation.component.filter.FoodFilter
-
 data class CartItemUi(
     val id: Int,
     val name: String,

@@ -8,12 +8,10 @@ import com.space.core.domain.usecase.AddToCartUseCase
 import com.space.core.domain.usecase.GetCartItemsUseCase
 import com.space.core.domain.usecase.IncrementCartItemUseCase
 import com.space.foodgo.feature.cart.api.CartFeatureKey
-import com.space.foodgo.feature.menu.presentation.component.filter.FoodFilter
+import com.space.foodgo.feature.menu.presentation.model.FoodFilter
 import com.space.foodgo.feature.menu.presentation.mapper.CartItemMapper
 import com.space.foodgo.feature.menu.presentation.model.CartItemUi
 import com.space.foodgo.feature.menu.presentation.model.StaticMenuDataSource
-import kotlinx.coroutines.flow.launchIn
-import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 
 class MenuVm(

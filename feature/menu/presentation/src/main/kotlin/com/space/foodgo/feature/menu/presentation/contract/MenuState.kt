@@ -1,7 +1,7 @@
 package com.space.foodgo.feature.menu.presentation.contract
 
 import com.space.core.presentation.common.UiState
-import com.space.foodgo.feature.menu.presentation.component.filter.FoodFilter
+import com.space.foodgo.feature.menu.presentation.model.FoodFilter
 import com.space.foodgo.feature.menu.presentation.model.CartItemUi
 
 data class MenuState(

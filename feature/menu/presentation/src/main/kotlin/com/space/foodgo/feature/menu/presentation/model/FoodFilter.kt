@@ -1,4 +1,4 @@
-package com.space.foodgo.feature.menu.presentation.component.filter
+package com.space.foodgo.feature.menu.presentation.model
 
 enum class FoodFilter(val label: String) {
     ALL("All"),

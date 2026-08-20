@@ -1,7 +1,6 @@
 package com.space.foodgo.feature.menu.presentation.model
 
 import com.space.foodgo.feature.menu.presentation.R
-import com.space.foodgo.feature.menu.presentation.component.filter.FoodFilter
 
 object StaticMenuDataSource {
     fun getMenuItems(): List<CartItemUi> = listOf(

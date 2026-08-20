@@ -9,6 +9,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.space.core.ui.theme.FoodGoTheme
 import com.space.core.ui.theme.Spacing
+import com.space.foodgo.feature.menu.presentation.model.FoodFilter
 
 @Composable
 fun FoodFilterRow(

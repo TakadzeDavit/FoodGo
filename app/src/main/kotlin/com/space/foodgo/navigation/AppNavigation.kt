@@ -9,6 +9,7 @@ import androidx.navigation3.ui.NavDisplay
 import com.space.core.navigation.LocalGlobalNavigator
 import com.space.core.navigation.rememberNavigator
 import com.space.foodgo.MainActivity
+import com.space.foodgo.feature.cart.presentation.navigator.cartEntry
 import com.space.foodgo.feature.menu.api.MenuFeatureKey
 import com.space.foodgo.feature.menu.presentation.navigator.menuEntry
 
@@ -30,6 +31,7 @@ fun MainActivity.FoodGoContainer() {
             },
             entryProvider = entryProvider {
                 menuEntry()
+                cartEntry()
             },
         )
     }

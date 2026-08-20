@@ -15,8 +15,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
 import com.space.core.ui.R
-import com.space.core.ui.theme.Colors
 import com.space.core.ui.theme.FoodGoTheme.colors
+import com.space.core.ui.theme.FoodGoTheme.typography
 import com.space.core.ui.theme.Radius
 import com.space.core.ui.theme.Sizing
 
@@ -25,12 +25,13 @@ fun QuantityCounter(
     quantity: Int,
     onMinusClick: () -> Unit,
     onPlusClick: () -> Unit,
+    modifier: Modifier = Modifier
 ) {
     Row(
-        modifier = Modifier
+        modifier = modifier
             .height(Sizing.size36)
             .background(
-                color = Colors.CardBg,
+                color = colors.cardBg,
                 shape = Radius.radius8
             )
             .border(
@@ -48,18 +49,21 @@ fun QuantityCounter(
             contentAlignment = Alignment.Center
         ) {
             Image(
-                painter = painterResource(R.drawable.ic_remove),
-                contentDescription = null
+                painter = painterResource(
+                    id = if (quantity == 1) R.drawable.ic_close else R.drawable.ic_remove
+                ),
+                contentDescription = if (quantity == 1) "Delete" else "Remove"
             )
         }
 
         Box(
-            modifier = Modifier
-                .size(Sizing.size36),
+            modifier = Modifier.size(Sizing.size36),
             contentAlignment = Alignment.Center
         ) {
             Text(
-                text = quantity.toString()
+                text = quantity.toString(),
+                style = typography.titleMedium,
+                color = colors.textPrimary
             )
         }
 
@@ -71,7 +75,7 @@ fun QuantityCounter(
         ) {
             Image(
                 painter = painterResource(R.drawable.ic_add),
-                contentDescription = null
+                contentDescription = "Add"
             )
         }
     }
