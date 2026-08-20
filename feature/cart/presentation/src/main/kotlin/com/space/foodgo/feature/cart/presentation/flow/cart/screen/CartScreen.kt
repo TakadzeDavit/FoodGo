@@ -1,27 +1,23 @@
 package com.space.foodgo.feature.cart.presentation.flow.cart.screen
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.clickable
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.systemBarsPadding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.material3.Icon
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import com.space.core.presentation.common.BaseScreen
 import com.space.core.ui.component.EmptyCartComponent
 import com.space.core.ui.component.FoodGoPrimaryButton
 import com.space.core.ui.theme.FoodGoTheme.colors
-import com.space.core.ui.theme.FoodGoTheme.typography
-import com.space.core.ui.theme.Radius
 import com.space.core.ui.theme.Sizing
 import com.space.core.ui.theme.Spacing
 import com.space.foodgo.feature.cart.presentation.R
@@ -54,6 +50,7 @@ private fun CartScreenContent(
         modifier = Modifier
             .fillMaxSize()
             .background(colors.background)
+            .systemBarsPadding()
             .padding(horizontal = Spacing.spacing16)
     ) {
         Spacer(modifier = Modifier.height(Spacing.spacing16))

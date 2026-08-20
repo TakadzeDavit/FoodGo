@@ -24,6 +24,7 @@ import com.space.core.ui.theme.FoodGoTheme.colors
 import com.space.core.ui.theme.FoodGoTheme.typography
 import com.space.core.ui.theme.Radius
 import com.space.core.ui.theme.Spacing
+import com.space.foodgo.feature.cart.presentation.R
 import com.space.foodgo.feature.cart.presentation.flow.cart.model.CartProductUi
 
 @Composable
@@ -46,7 +47,7 @@ fun CartItemCard(
             modifier = Modifier.weight(1f)
         ) {
             Image(
-                painter = painterResource(id = item.imageResId),
+                painter = painterResource(id = R.mipmap.food_img_foreground),
                 contentDescription = item.name,
                 contentScale = ContentScale.Crop,
                 modifier = Modifier

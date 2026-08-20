@@ -8,6 +8,7 @@ import com.space.core.presentation.common.BaseVm
 import com.space.foodgo.feature.cart.presentation.flow.cart.contract.CartEvent
 import com.space.foodgo.feature.cart.presentation.flow.cart.contract.CartState
 import com.space.foodgo.feature.cart.presentation.flow.cart.mapper.ToCartProductUiMapper
+import com.space.foodgo.feature.cart.presentation.navigator.OrderScreenKey
 import kotlinx.coroutines.launch
 
 class CartVm(
@@ -64,6 +65,6 @@ class CartVm(
     }
 
     private fun handlePlaceOrder() {
-        // შეკვეთის გაგზავნის ლოგიკა
+        flowNavigator { push(OrderScreenKey) }
     }
 }

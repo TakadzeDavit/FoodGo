@@ -7,6 +7,9 @@ import androidx.navigation3.runtime.entryProvider
 import androidx.navigation3.runtime.rememberSaveableStateHolderNavEntryDecorator
 import androidx.navigation3.ui.NavDisplay
 import com.space.core.navigation.LocalGlobalNavigator
+import com.space.core.navigation.featurePopTransitionSpec
+import com.space.core.navigation.featurePredictivePopTransitionSpec
+import com.space.core.navigation.featureTransitionSpec
 import com.space.core.navigation.rememberNavigator
 import com.space.foodgo.MainActivity
 import com.space.foodgo.feature.cart.presentation.navigator.cartEntry
@@ -29,6 +32,9 @@ fun MainActivity.FoodGoContainer() {
             onBack = {
                 if (navigator.backStack.size > 1) navigator.pop() else finishAffinity()
             },
+            transitionSpec = featureTransitionSpec(),
+            popTransitionSpec = featurePopTransitionSpec(),
+            predictivePopTransitionSpec = featurePredictivePopTransitionSpec(),
             entryProvider = entryProvider {
                 menuEntry()
                 cartEntry()

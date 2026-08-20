@@ -19,4 +19,5 @@ object Sizing {
     val size42 = Dimensions.dimension42
     val size44 = Dimensions.dimension44
     val size52 = Dimensions.dimension52
+    val size220 = Dimensions.dimension220
 }

@@ -12,6 +12,9 @@ import androidx.navigation3.scene.SinglePaneSceneStrategy
 import androidx.navigation3.ui.NavDisplay
 import com.space.core.navigation.FlowNavigationKey
 import com.space.core.navigation.LocalFlowNavigator
+import com.space.core.navigation.featurePopTransitionSpec
+import com.space.core.navigation.featurePredictivePopTransitionSpec
+import com.space.core.navigation.featureTransitionSpec
 import com.space.core.navigation.rememberNavigator
 import com.space.core.navigation.requireGlobalNavigator
 
@@ -36,6 +39,9 @@ fun FlowContainer(
             ),
             onBack =
                 { if (navigator.backStack.size > 1) navigator.pop() else globalNavigator.pop() },
+            transitionSpec = featureTransitionSpec(),
+            popTransitionSpec = featurePopTransitionSpec(),
+            predictivePopTransitionSpec = featurePredictivePopTransitionSpec(),
             entryProvider = entryProvider {
                 entry.invoke(this)
             }
