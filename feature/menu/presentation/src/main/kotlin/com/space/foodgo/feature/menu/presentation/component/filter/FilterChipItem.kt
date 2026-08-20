@@ -16,6 +16,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import com.space.core.ui.theme.FoodGoTheme
 import com.space.core.ui.theme.FoodGoTheme.colors
+import com.space.core.ui.theme.FoodGoTheme.typography
 import com.space.core.ui.theme.Radius
 import com.space.core.ui.theme.Sizing
 import com.space.core.ui.theme.Spacing
@@ -28,26 +29,31 @@ fun FilterChipItem(
     onClick: () -> Unit
 ) {
     val textColor by animateColorAsState(
-        targetValue = if (isSelected) Color.White else colors.textSecondary
+        targetValue = if (isSelected) colors.background else colors.addedBg
     )
     val backgroundColor by animateColorAsState(
-        targetValue = if (isSelected) colors.primary else Color.White
+        targetValue = if (isSelected) colors.addedBg else colors.background
     )
-    val borderColor = if (isSelected) Color.Transparent else colors.textSecondary
+    val borderColor = if (isSelected) Color.Transparent else colors.addedBg
 
     Box(
         modifier = Modifier
             .clip(Radius.Radius50)
             .background(backgroundColor)
-            .border(Sizing.size1, borderColor, Radius.Radius50)
+            .border(
+                Sizing.size2, borderColor,
+                Radius.Radius50
+            )
             .clickable(onClick = onClick)
-            .padding(horizontal = Spacing.spacing20, vertical = Spacing.spacing10)
+            .padding(
+                horizontal = Spacing.spacing20,
+                vertical = Spacing.spacing6
+            )
     ) {
         Text(
             text = label,
             color = textColor,
-            fontSize = TextSizing.size14,
-            fontWeight = if (isSelected) FontWeight.SemiBold else FontWeight.Normal
+            style = typography.bodyMedium
         )
     }
 }

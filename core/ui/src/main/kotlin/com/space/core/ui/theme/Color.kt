@@ -6,13 +6,13 @@ import androidx.compose.ui.graphics.Color
 internal object Colors {
     val Primary = Color(0xFF3B7683)
     val OnPrimary = Color(0xFFFFFFFF)
-    val Background = Color(0xFFF6F6EE)
-    val CardBg = Color(0xFFEBDDC8)
+    val Background = Color(0xFFF2F2E5)
+    val CardBg = Color(0xFFE9DCC6)
     val TextPrimary = Color(0xFF265053)
     val TextSecondary = Color(0xFF0C6758)
     val BadgeRed = Color(0xFFB15053)
     val BorderNeutral = Color(0xFF0C6758)
-    val AddedBg = Color(0xFFEBDDC8)
+    val AddedBg = Color(0xFF9B865D)
     val AddedText = Color(0xFF265053)
     val Surface = Color(0xFFF6F6EE)
 }

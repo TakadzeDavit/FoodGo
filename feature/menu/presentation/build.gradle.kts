@@ -5,3 +5,7 @@ plugins {
 android {
     namespace = "com.space.foodgo.feature.menu.presentation"
 }
+
+dependencies {
+    implementation(projects.feature.cart.api)
+}

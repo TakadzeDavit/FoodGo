@@ -18,6 +18,7 @@ import androidx.compose.material3.Text
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
@@ -28,6 +29,7 @@ import com.space.core.ui.theme.Spacing
 import com.space.foodgo.feature.menu.presentation.component.card.MenuItemCard
 import com.space.foodgo.feature.menu.presentation.component.filter.FoodFilterRow
 import com.space.core.ui.R
+import com.space.core.ui.theme.Sizing
 
 @Composable
 fun MenuScreen() {
@@ -51,6 +53,7 @@ private fun MenuScreenContent(
         modifier = Modifier
             .fillMaxSize()
             .background(colors.background)
+            .systemBarsPadding()
     ) {
         Spacer(modifier = Modifier.height(Spacing.spacing16))
 
@@ -75,35 +78,35 @@ private fun MenuScreenContent(
                 )
             }
 
-            // Cart Button with Badge
             Box(
                 modifier = Modifier
-                    .size(48.dp)
-                    .clip(Radius.radius12)
-                    .background(MaterialTheme.colorScheme.surfaceVariant)
+                    .size(Sizing.size44)
                     .clickable { onEvent(MenuEvent.OnCartClick) },
                 contentAlignment = Alignment.Center
             ) {
                 Icon(
-                    painter = painterResource(id = R.drawable.ic_add),
-                    contentDescription = "Cart",
+                    painter = painterResource(id = com.space.foodgo.feature.menu.presentation.R.drawable.ic_shopping_cart),
+                    contentDescription = null,
                     tint = colors.textPrimary,
-                    modifier = Modifier.size(24.dp)
+                    modifier = Modifier.size(32.dp)
                 )
 
                 if (state.cartItemsCount > 0) {
                     Box(
                         modifier = Modifier
                             .align(Alignment.TopEnd)
-                            .offset(x = 4.dp, y = (-4).dp)
-                            .size(20.dp)
-                            .background(colors.primary, CircleShape),
+                            .offset(x = 2.dp, y = 2.dp)
+                            .size(22.dp)
+                            .background(
+                                colors.badgeRed,
+                                CircleShape
+                            ),
                         contentAlignment = Alignment.Center
                     ) {
                         Text(
                             text = "${state.cartItemsCount}",
-                            color = MaterialTheme.colorScheme.onPrimary,
-                            fontSize = 11.sp,
+                            color = Color.White,
+                            fontSize = 12.sp,
                             fontWeight = FontWeight.Bold
                         )
                     }
@@ -113,7 +116,6 @@ private fun MenuScreenContent(
 
         Spacer(modifier = Modifier.height(Spacing.spacing20))
 
-        // Filter Categories
         FoodFilterRow(
             selected = state.selectedFilter,
             modifier = Modifier.fillMaxWidth(),
@@ -124,7 +126,6 @@ private fun MenuScreenContent(
 
         Spacer(modifier = Modifier.height(Spacing.spacing16))
 
-        // Product Grid
         LazyVerticalGrid(
             columns = GridCells.Fixed(2),
             contentPadding = PaddingValues(
@@ -139,7 +140,6 @@ private fun MenuScreenContent(
                 items = state.menuItems,
                 key = { it.id }
             ) { item ->
-                // იღებს ამ ნივთის რაოდენობას კალათიდან (თუ არ არის, აბრუნებს 0-ს)
                 val cartQuantity = state.cartItemQuantities[item.id] ?: 0
 
                 MenuItemCard(

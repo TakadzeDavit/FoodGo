@@ -7,6 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.space.core.domain.usecase.AddToCartUseCase
 import com.space.core.domain.usecase.GetCartItemsUseCase
 import com.space.core.domain.usecase.IncrementCartItemUseCase
+import com.space.foodgo.feature.cart.api.CartFeatureKey
 import com.space.foodgo.feature.menu.presentation.component.filter.FoodFilter
 import com.space.foodgo.feature.menu.presentation.mapper.CartItemMapper
 import com.space.foodgo.feature.menu.presentation.model.CartItemUi
@@ -31,30 +32,31 @@ class MenuVm(
 
     override fun onEvent(event: MenuEvent) {
         when (event) {
-            is MenuEvent.OnFilterSelected -> {
-                updateState { copy(selectedFilter = event.filter) }
-                applyFilter(event.filter)
-            }
-            is MenuEvent.OnAddToCart -> {
-                viewModelScope.launch {
-                    val domainItem = cartItemUiMapper.map(event.item)
-                    addToCartUseCase(domainItem)
-                }
-            }
-            is MenuEvent.OnIncrementQuantity -> {
-                viewModelScope.launch {
-                    incrementCartItemUseCase(event.productId)
-                }
-            }
+            is MenuEvent.OnFilterSelected -> applyFilter(event.filter)
+            is MenuEvent.OnAddToCart -> addToCart(event.item)
+            is MenuEvent.OnIncrementQuantity -> incrementQuantity(event.productId)
             is MenuEvent.OnCartClick -> {
-                // ნავიგაცია კალათის სქრინზე (გაგზავნე SideEffect ან გამოიყენე შენი Navigator)
+                globalNavigator { push(CartFeatureKey) }
             }
         }
     }
 
+    private fun incrementQuantity(productId: Int) {
+        viewModelScope.launch {
+            incrementCartItemUseCase(productId)
+        }
+    }
+
+    private fun addToCart(item: CartItemUi) {
+        viewModelScope.launch {
+            val domainItem = cartItemUiMapper.map(item)
+            addToCartUseCase(domainItem)
+        }
+    }
+
     private fun observeCartData() {
-        getCartItemsUseCase()
-            .onEach { cartItems ->
+        viewModelScope.launch {
+            getCartItemsUseCase().collect { cartItems ->
                 val quantitiesMap = cartItems.associate { it.id to it.quantity }
                 val totalCount = cartItems.sumOf { it.quantity }
 
@@ -65,10 +67,12 @@ class MenuVm(
                     )
                 }
             }
-            .launchIn(viewModelScope)
+        }
     }
 
     private fun applyFilter(filter: FoodFilter) {
+        updateState { copy(selectedFilter = filter) }
+
         val filteredList = if (filter == FoodFilter.ALL) {
             allProducts
         } else {
