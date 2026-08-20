@@ -11,4 +11,5 @@ dependencies {
     implementation(libs.bundles.room)
     implementation(libs.bundles.koin)
     ksp(libs.room.compiler)
+    implementation(projects.core.domain)
 }

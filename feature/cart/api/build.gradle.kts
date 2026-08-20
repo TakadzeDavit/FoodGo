@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.space.foodgo.feature.menu.api"
+    namespace = "com.space.foodgo.feature.cart.api"
 }
 
 dependencies {
